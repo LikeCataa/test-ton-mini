@@ -1,17 +1,38 @@
 <template>
   <div class="container">
     <div>test</div>
+    <button @click="connect">connect wallet</button>
+    <div id="connect-wallet"></div>
   </div>
 </template>
 
 <script>
   import WebApp from '@twa-dev/sdk'
+  import TonConnect from '@tonconnect/sdk';
+  import { TonConnectUI } from '@tonconnect/ui'
 
   export default {
     name: 'IndexPage',
-    async mounted() {
-      WebApp.ready();
+    data() {
+      return {
+        connector: null,
+      };
     },
+    async mounted() {
+      this.connector = new TonConnectUI({
+        manifestUrl: 'https://likecataa.github.io/test-ton-mini/tonconnect-manifest.json',
+        buttonRootId: 'connect-wallet'
+      }); 
+
+      WebApp.ready();
+
+      
+    },
+    methods: {
+      async connect() {
+
+      },
+    }
   }
 </script>
 
