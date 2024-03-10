@@ -43,11 +43,16 @@ export default {
   modules: [
   ],
 
+  router: {
+    base: "/test-ton-mini"
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
 
   generate: {
-    dir: 'docs'
+    dir: 'docs',
+    subFolders: false
   }
 }
